@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-cardconnectmobileios" version="1.0.0">
+   <name>CardConnectMobileiOS</name>
+   <js-module name="CardConnectMobileiOS" src="www/CardConnectMobileiOS.js">
+      <clobbers target="CardConnectMobileiOS" />
+   </js-module>
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="CardConnectMobileiOS">
+            <param name="ios-package" value="CardConnectMobileiOS" />
+         </feature>
+      </config-file>
+      <framework src="src/ios/CardConnectConsumerSDK.framework" embed="true" custom="true" /> 
+      <source-file src="src/ios/CardConnectConsumerSDK.framework" target-dir="lib" framework="true" />
+
+      <source-file src="src/ios/CardConnectMobileiOS.m" />
+   </platform>
+</plugin>

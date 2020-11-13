@@ -1,0 +1,17 @@
+{
+  "name": "cardconnectmobileios",
+  "version": "1.0.0",
+  "description": "Plugin to work with card connect APIs in ionic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CardConnect",
+    "iOS",
+    "Payment",
+    "ionic"
+  ],
+  "author": "evontech",
+  "license": "ISC"
+}
