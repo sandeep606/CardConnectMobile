@@ -22,7 +22,7 @@
 {
 
     [CCCAPI instance].endpoint = @"fts-uat.cardconnect.com";
-    if (command.arguments[0] valueForKey:@"end_point"] == nil){
+    if ([command.arguments[0] valueForKey:@"end_point"] == nil){
 
         [CCCAPI instance].endpoint = @"fts.cardconnect.com";
     }
@@ -35,7 +35,7 @@
 
 - (void)payWithCardDetails:(CDVInvokedUrlCommand*)command{
 
-    CDVPluginResult* pluginResult = nil;
+    __block CDVPluginResult* pluginResult = nil;
 
     if ([(NSMutableDictionary *)[command.arguments[0] allKeys] count] > 0 ) {
         
@@ -49,7 +49,6 @@
         //                                                       merchantUserName:[command.arguments[0] valueForKey:@"card_cvv"]
         //                                                             isTestMode:isTestMode];
         [[CCCAPI instance] generateAccountForCard:self.card completion:^(CCCAccount * _Nullable account, NSError * _Nullable error) {
-            [self i_stopActivityIndicator];
         // self.card = nil;
             if (account){
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:account.token];
@@ -57,11 +56,11 @@
             else{
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
             }
-        }]
+        }];
     }
     else{
 
-        pluginResult = [CDVPluginResult resultWithStatus:"Please provide complete card details"];
+        pluginResult = [CDVPluginResult resultWithStatus:@"Please provide complete card details"];
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
