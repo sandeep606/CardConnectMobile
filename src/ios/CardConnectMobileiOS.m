@@ -60,7 +60,7 @@
     }
     else{
 
-        pluginResult = [CDVPluginResult resultWithStatus:@"Please provide complete card details"];
+        pluginResult = [[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Please provide complete card details"]
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
