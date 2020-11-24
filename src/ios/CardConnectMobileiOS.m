@@ -28,7 +28,7 @@
     }
 
     [CCCAPI instance].enableLogging = YES;    
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:"Account added"];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Account added"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
@@ -60,7 +60,7 @@
     }
     else{
 
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Please provide complete card details"]
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Please provide complete card details"];
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
