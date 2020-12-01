@@ -21,6 +21,8 @@
 - (void)initialisePayment:(CDVInvokedUrlCommand*)command
 {
 
+    NSLog(@"Parameters are %@", command.arguments);
+
     [CCCAPI instance].endpoint = @"fts-uat.cardconnect.com";
     if ([command.arguments[0] valueForKey:@"end_point"] == nil){
 
